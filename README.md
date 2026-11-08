@@ -43,3 +43,26 @@ Buyer Profitability: Which buyer generates the highest commercial premium?
 Contract Fulfillment: Is the annual GSPA commitment with ANTAM of 3 metric tons being fulfilled?
 Unpriced Exposure: Which trades remain unpriced, and what is the outstanding pricing exposure?
 This project builds an end-to-end analytical pipeline that transforms raw trading data into actionable insights through a structured data warehouse and a Metabase dashboard.
+
+
+
+## Architecture
+
+```text
+CSV / API (Metals.Dev)
+    │
+    ▼
+raw schema (Postgres)       ← as-is dari CTRM export
+    │
+    ▼
+dbt staging                 ← cleansing, casting
+    │
+    ▼
+dbt intermediate            ← QP average, FX, realized price
+    │
+    ▼
+dbt marts                   ← price realization, basis, buyer, fulfillment
+    │
+    ▼
+Metabase dashboard
+Medallion-inspired: raw → staging/intermediate → marts.
