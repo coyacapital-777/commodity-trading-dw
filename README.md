@@ -66,3 +66,12 @@ dbt marts                   ← price realization, basis, buyer, fulfillment
     ▼
 Metabase dashboard
 Medallion-inspired: raw → staging/intermediate → marts.
+
+Technology Stack
+Database: PostgreSQL
+Data Transformation: dbt
+Data Sources: CSV exports and Metals.Dev API
+Programming Language: SQL / Python
+Data Visualization: Metabase
+Version Control: Git / GitHub
+Testing: dbt Tests and Business Logic Validation
